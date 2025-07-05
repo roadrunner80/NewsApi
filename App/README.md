@@ -73,8 +73,8 @@ NewsApi
 
 | Endpoint | Description | Response Body | Parameters |
 | -------- | ------- | ------- | -------- |
-| `GET /news` | Retrieves a list news. | collection of News Items | `numberOfArticles` default 5 |
-| `GET search/{keyword}` | search for news by keyword. | collection of News Items | `keyword` only one word, just characters, `numberOfArticles` default 5  |
+| `GET /news/fetch` | Retrieves a list news. | collection of News Items | `numberOfArticles` default 5 |
+| `GET /search/{keyword}` | search for news by keyword. | collection of News Items | `keyword` only one word, just characters, `numberOfArticles` default 5  |
 | `GET /news/search/at/{date}` | search for news at a date. | a News Item | `date` format YYYY-MM-DD |
 
 ### Docker
