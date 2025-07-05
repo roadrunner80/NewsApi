@@ -77,8 +77,31 @@ NewsApi
 | `GET search/{keyword}` | search for news by keyword. | collection of News Items | `keyword` only one word, just characters, `numberOfArticles` default 5  |
 | `GET /news/search/at/{date}` | search for news at a date. | a News Item | `date` format YYYY-MM-DD |
 
+### Docker
+
+`$ cd App`
+
+**Build image**
+
+`$ docker build -t news-api-image -f Dockerfile .`
+
+**Run NewsAPI**
+
+`$ docker run -d -p 8080:8080 news-api-image`
+
+`$ docker ps -a`
+
+sould print something like
+```
+CONTAINER ID   IMAGE            COMMAND                CREATED         STATUS         PORTS                                       NAMES
+3b73f1b9777a   news-api-image   "dotnet NewsApi.dll"   4 seconds ago   Up 3 seconds   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   goofy_murdock
+```
+
+- `GET http://localhost:8080/news/fetch?numberOfArticles=50`
+- `GET http://localhost:8080/news/search/at/2025-07-04`
+- `GET http://localhost:8080/news/search/Trump?numberOfArticles=50`
+
 ## ToDo
-  - Containerize the project using Docker so that it can be started with a single CLI command
   - Unit Test GNewsClient
   - Add Test Case for Mapper test that test null values
   - Add test case to validate 404 if search at returns no news article
